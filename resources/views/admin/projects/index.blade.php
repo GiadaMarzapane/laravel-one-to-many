@@ -18,6 +18,7 @@
                     <th scope="col">ID</th>
                     <th scope="col">TITOLO</th>
                     <th scope="col">ANNO</th>
+                    <th scope="col">TIPO VIAGGIO</th>
                     <th scope="col">AZIONI</th>
                     </tr>
                 </thead>
@@ -27,6 +28,7 @@
                         <th scope="row">{{ $element->id }}</th>
                         <td>{{ $element->title }}</td>
                         <td>{{ $element->date }}</td>
+                        <td>{{ $element->type ? $element->type->name : 'Nessun tipo impostato' }}</td>
                         <td>
                             <a class="btn btn-primary" href="{{ route('admin.projects.show', $element->id) }}">
                                 <i class="fa-solid fa-eye"></i>
