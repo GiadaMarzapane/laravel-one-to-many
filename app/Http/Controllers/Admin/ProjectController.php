@@ -44,7 +44,6 @@ class ProjectController extends Controller
      */
     public function create()
     {
-
         // recupero i miei types
         $types = Type::all();
         return view('admin.projects.create', compact('types'));
@@ -93,7 +92,10 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('admin.projects.edit', compact('project'));
+        // recupero i miei types
+        $types = Type::all();
+
+        return view('admin.projects.edit', compact(['project', 'types']));
     }
 
     /**

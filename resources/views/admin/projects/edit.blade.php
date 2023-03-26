@@ -79,6 +79,20 @@
                         <span class="text-danger">*</span> Campo obbligatorio
                     </div>
                 </div>
+                {{-- INPUT PER SELECT --}}
+                <div class="mb-4">
+                    <label for="type_id" class="form-label">Tipo viaggio:</label>
+                    <select name="type_id"
+                    class="form-select"
+                    id="type_id">
+                        <option value="">Nessun tipo</option>
+                        @foreach ($types as $element)
+                            <option value="{{ $element->id }}" {{ old('type_id', $project->type_id) == $element->id ? 'selected' : '' }}>
+                                {{ $element->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
                 {{-- INPUT PER PHOTO_LINK --}}
                 @if (isset($project->photo_link))
                 <div class="py-4">
