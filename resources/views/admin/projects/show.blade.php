@@ -18,6 +18,10 @@
                 Anno del viaggio: 
                 {{ $project->date }}
             </h5>
+            <h5>
+                Tipo di viaggio:
+                {{ $project->type ? $project->type->name : 'Nessun tipo impostato' }}
+            </h5>
             {{-- IF per photo link --}}
             @if (isset($project->photo_link))
             <div class="py-4">

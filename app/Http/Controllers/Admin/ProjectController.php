@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
-
+use App\Models\Type;
 // Helper
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
@@ -44,7 +44,10 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('admin.projects.create');
+
+        // recupero i miei types
+        $types = Type::all();
+        return view('admin.projects.create', compact('types'));
     }
 
     /**
@@ -76,6 +79,7 @@ class ProjectController extends Controller
             'date'=> $data['date'],
             'photo_link'=> $data['photo_link'],
             'localimg' => $imgPath,
+            'type_id' =>$data['type_id']
         ]);
 
         return redirect()->route('admin.projects.show', $newProject->id)->with('status', 'Viaggio aggiunto con successo!');;
