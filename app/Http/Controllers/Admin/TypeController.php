@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+
+use Illuminate\Routing\Controller;
 
 use App\Models\Type;
 use App\Http\Requests\StoreTypeRequest;
